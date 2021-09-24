@@ -82,6 +82,7 @@ typedef void(^ILABGenerateAssetBlock)(BOOL complete, AVAsset *asset, NSError *er
                 strongSelf->_sourceFPS = t.nominalFrameRate;
                 
                 _sourceTransform = t.preferredTransform;
+                NSLog(@"_sourceTransform > %f %f %f %f", _sourceTransform.a, _sourceTransform.b, _sourceTransform.c, _sourceTransform.d);
                 if (_sourceTransform.a == 0 && _sourceTransform.d == 0 && (_sourceTransform.b == 1.0 || _sourceTransform.b == -1.0) && (_sourceTransform.c == 1.0 || _sourceTransform.c == -1.0)) {
                     strongSelf->_sourceSize = CGSizeMake(t.naturalSize.height, t.naturalSize.width);
                 } else {
